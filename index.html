@@ -10,20 +10,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="shortcut icon" href="vgpico.ico" >
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 
     <title>Grande Queimado</title>
 
-<style>
+    <style>
+               
     html, body, div, span, applet, object, iframe,
         h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-        a, abbr, acronym, address, big, cite, code,
-        del, dfn, em, img, ins, kbd, q, s, samp,
-        small, strike, strong, sub, sup, tt, var,
-        b, u, i, center,
+        a, abbr, acronym, address, big, cite, del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, tt, var, i,
+        b, u, center,
         dl, dt, dd, ol, fieldset, form, label, legend,
         table, caption, tbody, tfoot, thead, tr, th, td,
         article, aside, canvas, details, embed, 
@@ -44,6 +49,7 @@
         textarea:focus, input:focus{
             outline: none;
         }
+
         body{
             height:100%;
             width: 100%;
@@ -53,19 +59,38 @@
             min-height:100vh;
             font-family: 'open sans', sans-serif;
         }
-
+        b{
+            font-style: bold;
+        }
         html{
             height:10%;
             width: 100%;
         }
+        .btn{
+            display: flex;
+            align-items: center;
+            border-radius: 50%;
+            text-align: center;
+            margin-left: 2px;
+            width: 20px;
+            padding: 2px;
+            height: 20px;
 
+        }
+        
+        h3{
+            font-weight: 600;
+            color: #454545;
+            margin-bottom: 32px;
+            margin-top: 40px;
+        }
         .content{
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: space-evenly;    
             width: 100%;
-            height: 100%;
+            height: max-content;
             padding-right: 4%;
             padding-left: 4%;
             padding-top: 1%;
@@ -76,6 +101,8 @@
             color: #333333;
         }
 
+        
+
         header{
             width: auto;
             display: flex;
@@ -85,18 +112,19 @@
             color: #ed1c46;
             padding: 6px 12px 6px 12px;
             box-shadow: 0px 1px 2px 0px rgba(142, 142, 142, 0.75);
-            margin-bottom: 8px;
+            margin-bottom: 32px;
             position: relative;
         }
 
         h1{
             font-family: 'open sans', Candara, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-            font-size: 40px;
+            font-size: 38px;
             font-weight: 900;
         }        
         header h2{
             font-size: 20px;
             font-family:'open sans', sans-serif;
+            color: brown;
         }
         input{
             font-family: 'open sans', sans-serif;
@@ -112,6 +140,8 @@
             background-color: #ed1c46;
             color: white;
             border: 1px solid #ed1c46;
+            border-radius: 5px;
+            margin-bottom: 30px;
         }
         .male .form-check-input:checked{
 		background-color: white;
@@ -142,10 +172,7 @@
         .flex-age input{
             width: 50px;
         }
-        fieldset{
-            margin-top: 15px;
-            margin-bottom: 25px;
-        }
+        
         .inputDate{
             font-size: 18px;
             height: 23px;
@@ -196,24 +223,69 @@
         }
         .inputNumber{
             font-size: 18px;
-            height: 23px;
+            height: 24px;
             width: 100px;
             padding: 2px;
             margin-left: 0;
             margin-right: 5px;
-            margin-top: 5px;
+            margin-top: 24px;
+            margin-bottom: 10px;
             border: 1px solid #ed1c46;
-           border-radius: 5px;
+            border-top: 0;
+            border-right: 0;
+            border-left: 0;
+           
            text-align: center;
         }
+        .secondBox .inputNumber{
+            width: 128px;
+        }
         .pequenoTexto{
-            font-size: 14px;
+            font-size: 13px;
         }
         .erro{
             display: flex;
             flex-direction: column;
             align-items: center;
         }
+
+        #erroIdade{
+            font-size: 14px; 
+            font-style: italic;
+            color: red;
+            display: none;
+        }
+        #erroPeso{
+            font-size: 14px; 
+            font-style: italic;
+            color: #FFC300;
+            display: none;
+        }
+        #erroAltura{
+            font-size: 14px; 
+            font-style: italic;
+            color: #FFC300;
+            display: none;
+        }
+        #erroSexo{
+            font-size: 14px; 
+            font-style: italic;
+            color: red;
+            display: none;
+        }
+        #erroSCQ{
+            font-size: 14px; 
+            font-style: italic;
+            color: red;
+            display: none;
+        }
+        #erroT{
+            font-size: 14px; 
+            font-style: italic;
+            color: red;
+            display: none;
+        }
+
         #btnLerMais, #btnLerMais2{
 		cursor: pointer;
 		color: #ed1c46;
@@ -237,6 +309,7 @@
             -webkit-transform: scale(1.5); /* Chrome, Safari, Opera */
             transform: scale(1.5);
             border-color: #ed1c46;
+            top: 2px;
         } 
         input[type='radio'] {
         -webkit-appearance: none;
@@ -260,9 +333,11 @@
         }
 
         .bold{
-            font-weight: 600;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 0px;
         }
-
+        
         .erroDtMaior{
             font-size: 14px;
             max-width: 400px; 
@@ -279,6 +354,55 @@
             padding: 5px;
             text-align: center;
         }
+
+        * {
+        transition: all .2s ease;
+        }
+
+        .extra-info {
+        display: none;
+        font-size: 12px;
+        left: 5px;
+        top: -40px;
+        position: relative;
+        }
+        
+        .divH4 button{
+            outline: none;
+        }
+
+        .dadosGerais{
+            margin-top: 4px;
+            position: relative;
+            margin-bottom: 12px;
+        }
+        .dadosGeraisConteudo{
+            background-color: white;
+            border-radius: 8px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            padding: 24px;
+            border: 1px solid #dadce0;
+            border-top: none;
+
+        }
+        .subHeader{
+            background-color: #ed1c46;
+            border-radius: 8px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            padding-left: 20px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin: 0;
+            
+        }
+
+        .subHeader h3{
+            color: #fff;
+            margin: 0;
+        }
+    
         footer{
 			font-family: 'open sans', sans-serif;
 			font-size: 15px;
@@ -302,45 +426,85 @@
             }
         }
     
+        body{
+            background-color: rgb(253, 236, 239);
+        }
+    /* Tooltip container */
+    .tooltip {
+          position: relative;
+          display: inline-block;
+          border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+          opacity: 1;
+          font-family: 'open sans', sans-serif;
+          font-size: 16px;
+        }
+        
+        /* Tooltip text */
+        .tooltip .tooltiptext {
+          visibility: hidden;
+          width: max-content;
+          background-color: #333;
+          color: #fff;
+          text-align: center;
+          padding: 7px;
+          box-sizing: border-box;
+          border-radius: 6px;
+          font-size: 13px;
+          font-family: 'open sans', sans-serif;
+          white-space: nowrap;
+          /* Position the tooltip text - see examples below! */
+          position: absolute;
+          z-index: 1;
+        }
+        
+        /* Show the tooltip text when you mouse over the tooltip container */
+        .tooltip:hover .tooltiptext {
+          visibility: visible;
+        }
+
+        .tooltip .tooltiptext {
+        width: max-content;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -90px; /* Use half of the width (120/2 = 60), to center the tooltip */
+        }
 </style>    
 </head>
 <body>
     <header>
         <h1>Grande Queimado</h1>
-        <h2>NET do Paciente Grande Queimado</h2>
+        <h2><div class="tooltip"><b class="bold">NET</b>
+            <span class="tooltiptext">Necessidade Energética Total</span>
+        </div>   do Paciente Grande Queimado</h2>
     </header>
 <div class="content">
     <main>
+        <div class="dadosGerais">
         <div class="subHeader">    
-        <div class="divH3">
-            <h3>Faixa etária:</h3>
+            <h3>Dados Gerais</h3>
         </div>
-        <select name="select" id="selectId" onselect="selector()" oninput="selector()">
-            <option value="PTN">Adulto &#9660;</option>
-            <option value="Gluta">Criança (3-10a) &#9660;</option>
-            <option value="BCAA">Adolescente (10-18a) &#9660;</option>
-        </select>
-    </div>
-    <div>
-        <form method="get" id="fCalculo" action="none" oninput="resultado()" onchange="resultado()" onclick="resultado()" class="flex-row">
+        <div class="dadosGeraisConteudo"> 
+        <div>
+        <form method="get" id="fCalculo" action="none" oninput="resultado()" onchange="resultado()"  class="flex-row">
 			
 			<fieldset class="flex-row"><legend ><strong></strong></legend>
 			<div class="flex-age">
                 <p class="pri"><label for="input1da"><b class="bold">Idade</b></label>
                 <div class="flex-row">
-                    <input class="ano inputNumber" id="input1da" type="number"  maxlength="4" max="300" placeholder="0" onkeyup="PressEnter('flexSwitchCheckDefault');" oninput="redBorderAge()"></input>anos</p>
+                    <input class="ano inputNumber" id="input1da" type="number"  maxlength="4" max="300" placeholder="0" onkeyup="PressEnter('input3da');" oninput="redBorderAge()"></input>anos</p>
                 </div>
 			</div>
 			<div class="flex-sex">
-				<div>
+				<div style="margin-bottom: 3px;">
 					<p class="pri" style="display: block important!;"><label><b class="bold">Sexo&nbsp;&nbsp;</b></label>
-				</div><div class="form-check form-switch female">
+				</div>
+                <div class="form-check form-switch female">
 					<input name="sexo" class="form-check-input" type="radio" value="0" id="flexSwitchCheckDefault" onkeyup="PressEnter('flexSwitchCheckDefault2');">
-					<label class="form-check-label female" for="flexSwitchCheckDefault">Feminino ♀&nbsp;&nbsp;</label>
+					<label class="form-check-label female" for="flexSwitchCheckDefault">F ♀&nbsp;&nbsp;</label>
 				</div>
 				<div class="form-check form-switch male">
-					<input name="sexo" class="form-check-input" type="radio" value="1" id="flexSwitchCheckDefault2" onkeyup="PressEnter('input3da');">
-					<label class="form-check-label male" for="flexSwitchCheckDefault2">Masculino ♂</label>
+					<input name="sexo" class="form-check-input" type="radio" value="1" id="flexSwitchCheckDefault2">
+					<label class="form-check-label male" for="flexSwitchCheckDefault2">M ♂</label>
 				</div>
 				</p>						
 			</div>
@@ -353,50 +517,99 @@
             <div class="flex-age">
                 <p class="pri"><label for="input4da"><b class="bold">Altura</b></label>
                 <div class="flex-row">
-                    <input id="input4da" class="ano inputNumber" type="number"  maxlength="4" placeholder="0" onkeyup="PressEnter('input5da');" oninput="redBorderHeight()"></input>cm</p>
+                    <input id="input4da" class="ano inputNumber" type="number"  maxlength="4" placeholder="0" onkeyup="PressEnter('inputSCQ');" oninput="redBorderHeight()"></input>cm</p>
                 </div>
+            
             </div>
             <div class="flex-age" style="width: max-content;">
-                <p class="pri"><label for="inputGebHB"><b class="bold">GEB Harris-Benedict</b></label>
                 <div class="flex-row">
-                    <input id="inputGebHB" class="ano inputNumber" type="number"  maxlength="4" readonly></input>kcal</p>
+                <label for="inputSCQ">
+                    <div class="tooltip"><b class="bold">SCQ</b>
+                        <span class="tooltiptext">Superfície Corporal Queimada</span>
+                    </div>            
+                </div>
+                </label>
+                <div class="flex-row">
+                    <input id="inputSCQ" class="ano inputNumber" type="number"  maxlength="4" placeholder="0" oninput="redBorderSCQ()"></input>%</p>
                 </div>
             </div>
-			
-		
-			
 			</fieldset>
-							
+            </div>
+            <i id="erroIdade"><br>As equações não oferecem suporte a crianças menores de 3 anos.</i>
+            <i id="erroPeso"><br>Verifique se o Peso está correto.</i>
+            <i id="erroAltura"><br>Verifique se a Altura está correta.</i>
+            <i id="erroSexo"><br>Selecione um Sexo.</i>
+            <i id="erroSCQ"><br>Insira um valor entre 1 e 100 em SCQ.</i>
+
+            </div>
 		</form>
+        
     </div>
-        <div style="font-weight: bold; margin-bottom: 20px;">
-            <h2 style="color: #555;">Equação: Toronto</h2></br>
+        <div class="dadosGerais secondBox" id="toronto">
+        <div class="subHeader"> 
+            <h3>Equação de Toronto</h3>
         </div>
-        <form action="none" method="get" oninput="result()" oninput="erros()">
-            <section class="flex-column">
-                <div class="flex-spaceBetween">
-                    <div>
-                    <label for="peso1">Peso Inicial (g): </label><input class="inputNumber" id="peso1" type="number" onkeyup="PressEnter('data1');">
+        <form action="none" id="formToronto" oninput="resultado()">
+        <div class="dadosGeraisConteudo">
+        <div class="flex-age">
+            <p class="pri"><label for="inputE"><b class="bold">Energia recebida nas últimas 24h</b></label>
+            <div class="flex-row">
+                <input id="inputE" class="ano inputNumber" type="number"  maxlength="4" placeholder="0" onkeyup="PressEnter('inputT');" oninput="redBorderE()"></input>kcal</p>
+            </div>
+        </div>
+        <br>
+        <div class="flex-age">
+            <p class="pri"><label for="inputT"><b class="bold">Temperatura</b></label>
+            <div class="flex-row">
+                <input id="inputT" class="ano inputNumber" type="number"  maxlength="2" placeholder="0" onkeyup="PressEnter('inputDPQ');" oninput="redBorderT()"></input>°C</p>
+            </div>
+            <i id="erroT">Verifique se a Temperatura está correta.</i>
+        </div>
+        <br>
+        <div class="flex-age">
+            <p class="pri"><label for="inputDPQ"><b class="bold">Dias Pós-Queimadura</b></label>
+            <div class="flex-row">
+                <input id="inputDPQ" class="ano inputNumber" type="number"  maxlength="4" placeholder="0"  oninput="redBorderDPQ()"></input>dia(s)</p>
+            </div>
+        </div>
+        <br>
+        <div class="flex-age" style="width: max-content; display: none;">
+            <div class="flex-row">    
+            <p class="pri"><label for="inputGebHB"><b class="bold"><div class="tooltip"><b class="bold">GEB </b><span class="tooltiptext">Gasto Energético Basal</span></div> &nbsp;Harris-Benedict</b></label></div>
+                    <div class="flex-row">
+                    <input id="inputGebHB" class="ano inputNumber" type="number"  maxlength="4" readonly></input>kcal</p>
                 </div>
-                <div>
-                    <label for="data1">Data Inicial: </label><input class="inputDate" id="data1" type="date" placeholder="DD/MM/AAAA" onkeyup="PressEnter('peso2');" oninput="erros()">  
+        </div>
+        <div class="flex-age" style="width: max-content;">
+            <div class="flex-row">    
+            <p class="pri"><label for="inputToronto"><b class="bold"><div class="tooltip"><b class="bold">NET </b><span class="tooltiptext">Necessidade Energética Total</span></div> &nbsp;Toronto</b></label></div>
+                    <div class="flex-row">
+                    <input id="inputToronto" class="ano inputNumber" type="number"  maxlength="4" readonly style="margin-bottom: 0;"></input>kcal</p>
                 </div>
-                <br><br><br>
-                </div>
-                <div class="flex-spaceBetween">
-                <div>
-                    <label for="peso2">Peso Final (g): </label><input class="inputNumber" id="peso2" type="number" onkeyup="PressEnter('data2');">
-                </div>
-                <div>
-                    <label for="data2">Data Final: </label><input class="inputDate" id="data2" type="date" placeholder="DD/MM/AAAA" oninput="erros()">
-                </div>
-                </div>
-                <hr>
-                <div style="display:flex; justify-content: center; align-items: baseline;">
-                    <label for="vgp" style="font-weight: bold;">VGP (g/kg/dia): </label><input readonly class="inputNumber" id="vgp" type="number" style="font-weight: bold;">
-                </div>
-            </section>
-        </form>
+        </div>
+    </form>
+    </div><!--dadosGeraisConteudo-->
+    </div><!--dadosGerais-->
+
+    <div class="dadosGerais secondBox" id="schoffield">
+        <div class="subHeader"> 
+            <h3>Equação de Schoffield</h3>
+        </div>
+        <form action="none" id="formSchoffield">
+        <div class="dadosGeraisConteudo">
+        <div class="flex-row">
+            <p class="pri"><label for="inputSchoffield"><b class="bold"><div class="tooltip"><b class="bold">NET</b><span class="tooltiptext">Necessidade Energética Total</span></div> &nbsp;Schoffield</b></label></div>
+            <div class="flex-row">
+                <input id="inputSchoffield" class="ano inputNumber" type="number"  maxlength="4"  onkeyup="PressEnter('input5da');" oninput="redBorderHeight()" readonly style="margin-bottom: 10px;"></input>kcal</p>
+            </div>
+            <i style="font-size: 14px; font-style: italic; color: gray;">O resultado pode estar subestimado. Saiba mais na <a href="https://www.espen.info/wp/wordpress/wp-content/uploads/2013/06/burns.pdf" target="_blank">publicação</a>.</i>
+        </div>
+        
+    </div><!--dadosGeraisConteudo-->
+    </div><!--dadosGerais-->
+    </form>
+
+        
     <div>
     <div class="erro">    
         <div class="erroDtMaior" id="erroDtMaior" style="display: none;">
@@ -412,12 +625,12 @@
 
 <div class="divH4" style="max-width: 900px; margin-left: 4%;">
     <div>
-        <span style="font-weight: bold;">Fórmula</span><button onclick="lerMais2()" id="btnLerMais2" >&#9660;</button></br>
+        <span style="font-weight: bold;" id="formula">Fórmulas</span><button onclick="lerMais2()" id="btnLerMais2" >&#9660;</button></br>
         <span id="maisTexto2">
 			<div>
                 <p>
                 <br>
-                <p class="bold">Equação de Toronto</p> <br>
+                <p class="bold">Equação de Toronto (Adultos)</p> <br>
                 = -4343 + (10.5 × %SCQ) + (0.23 × E) + (0.84 × GEB Harris-Benedict) + (114 × T) - (4.5 × DPQ) <br><br> 
                 
                 <div class="pequenoTexto">
@@ -433,25 +646,64 @@
                         (mulheres) = 655.1 + (9.56 x Peso) + (1.85 X Altura) - (4.68 X Idade).    
                         </li>
                     </ul>
-                    DPB = Dias pós-queimadura<br><br>
-        
-                    
+                    DPQ = Dias pós-queimadura<br><br>
                 </div>
+                
                 </p>
+
+                <p>
+                    <br>
+                    <p class="bold">Equação de Schoffield (Crianças e Adolescentes)</p> <br>
+                    
+                    <div>
+                        Meninas
+                        <ul>3 a 10 anos:
+                            <li>
+                                (16.97 × P) + (1.618 × A) + 371.2
+                            </li><br>
+                            11 a 18 anos:
+                            <li>
+                                (8.365 × P) + (4.65 × A) + 200   
+                            </li>
+                        </ul>
+                        <br>
+                        Meninos
+                        <ul>3 a 10 anos:
+                            <li>
+                                (19.6 × P) + (1.033 × A) + 414.9
+                            </li><br>
+                            11 a 18 anos:
+                            <li>
+                                (16.25 × P) + (1.372 × A) + 515.5
+                            </li>
+                        </ul>
+                        <br>
+                        <div class="pequenoTexto">
+                            P = Peso em kg <br>
+                            A = Altura em cm
+                        </div><br>    
+                    </div>
+                    
+                    </p>
             </div> 
 		</span>
     </br>
         <span style="font-weight: bold;">Referências<button onclick="lerMais()" id="btnLerMais" >&#9660;</button></span></br>
         <span id="maisTexto">
+            <br>
 			Allard JP, Pichard C, Hoshino E, et al. Validation of a new formula for calculating the energy requirements of burn patients. JPEN J Parenter Enteral Nutr. 1990;14(2):115-118. doi:10.1177/0148607190014002115 <br><br>
-            Rousseau AF, Losser MR, Ichai C, Berger MM. ESPEN endorsed recommendations: nutritional therapy in major burns [published correction appears in Clin Nutr. 2013 Dec;32(6):1083]. Clin Nutr. 2013;32(4):497-502. doi:10.1016/j.clnu.2013.02.012
+            Rousseau AF, Losser MR, Ichai C, Berger MM. ESPEN endorsed recommendations: nutritional therapy in major burns [published correction appears in Clin Nutr. 2013 Dec;32(6):1083]. Clin Nutr. 2013;32(4):497-502. doi:10.1016/j.clnu.2013.02.012 <br><br>
+            Royall D, Fairholm L, Peters WJ, Jeejeebhoy KN, Allard JP. Continuous measurement of energy expenditure in ventilated burn patients: an analysis. Crit Care Med. 1994 Mar;22(3):399-406. doi: 10.1097/00003246-199403000-00008. PMID: 8124989. <br><br>
+            Suman OE, Mlcak RP, Chinkes DL, Herndon DN. Resting energy expenditure in severely burned children: analysis of agreement between indirect calorimetry and prediction equations using the Bland-Altman method. Burns. 2006 May;32(3):335-42. doi: 10.1016/j.burns.2005.10.023. Epub 2006 Mar 10. PMID: 16529869. <br><br>
+            Corrigendum to “ESPEN endorsed recommendation: Nutritional therapy in major burns” [Clin Nutr 32 (4) (2013) 497–502] DOI:https://doi.org/10.1016/j.clnu.2013.08.009 <br>
+            Corrigendum to “ESPEN endorsed recommendation: Nutritional therapy in major burns” [Clin Nutr 32 (4) (2013) 497–502] DOI:https://doi.org/10.1016/j.clnu.2013.07.006
 		</span>
     </div></br>
     <h4><span style="font-weight: bold;">Criado por:</span> </h4> <br>
     <p class="pH4"><a class="lattes" href="http://lattes.cnpq.br/4993291222018594" target="_blank">Alan da Cruz Assis da Silva</a></p>
     <br>
     <section class="siteInfo" style="display: flex; flex-direction: row; justify-content: space-between; padding-right: 2%;">
-        <p class="lastUpdated" style="color: gray;">Atualizado por último em 13/02/2023</p><p class="lastUpdated" style="color: #333333;"><a style="color: gray;" class="simpleLink" href="https://alancruzassis.github.io/vgp/termos.pdf">Termos de uso</a></p>
+        <p class="lastUpdated" style="color: gray;">Atualizado por último em 18/02/2023</p><p class="lastUpdated" style="color: #333333;"><a style="color: gray;" class="simpleLink" href="https://alancruzassis.github.io/vgp/termos.pdf">Termos de uso</a></p>
     </section>
 </div>
 
@@ -461,72 +713,8 @@
 		© Copyright 2023</i>
 		</div>
 	</footer>
-    <script>
-        function result(){
-            //SELECTION
-            let peso1 = document.getElementById('peso1');
-            let peso2 = document.getElementById('peso2');
-            let vgp = document.getElementById('vgp');
-            let data1 = document.getElementById('data1');
-            let data2 = document.getElementById('data2');
-            //ATRIBUITION
-            peso1 = peso1.value*1;
-            peso2 = peso2.value*1;
-            data1 = new Date (data1.value).getTime();
-            data2 = new Date (data2.value).getTime();
-
-            //MATH
-            let subtracaoPeso = parseFloat((peso2-peso1));
-            let media = parseFloat((peso1+peso2)/2).toFixed(2);
-            let subtracaoData = parseFloat((data2-data1)/86400000);
-            
-            let velocidadeGanhoPeso = parseFloat(subtracaoPeso/(media/1000)/subtracaoData).toFixed(2)
-            //DISPLAY
-            if(peso1>0&&peso2>0&&subtracaoData>0&&data1>0&&data2>0&&data1<data2){
-                vgp.value=velocidadeGanhoPeso;
-                vgp.style.color="black";
-            }else{
-                vgp.value=9999;
-                vgp.style.color="transparent";
-            }
-              
-        }
-        
-    </script>
-    <script>
-        function erros(){
-                let data1 = document.getElementById('data1');
-                let data2 = document.getElementById('data2');
-                datai = new Date (data1.value).getTime();
-                dataf = new Date (data2.value).getTime();
-                datai =datai*1;
-                dataf=dataf*1;
-                var erroDtMaior = document.getElementById('erroDtMaior');
-                var erroMenorCinco = document.getElementById('erroMenorCinco');
-                let subtracaoData = parseFloat((dataf-datai)/86400000);
-                let vgp = document.getElementById('vgp');
-                
-               if(datai>=dataf){
-                    erroDtMaior.style.display="block";
-                    data1.style.borderColor="red";
-                    data2.style.borderColor="red";
-               }else{
-                    erroDtMaior.style.display="none";
-                    data1.style.borderColor="#ed1c46";
-                    data2.style.borderColor="#ed1c46";
-               }
-               if(subtracaoData<5&&datai<dataf){
-                    erroMenorCinco.style.display="block";
-                    vgp.style.borderColor="orange";
-               }else{
-                    erroMenorCinco.style.display="none";
-                    vgp.style.borderColor="#ed1c46";
-               }
-               
-        }
-               
-        
-    </script>
+    
+    
      <script type="text/javascript">
 
         function PressEnter(nextinputId){
@@ -574,6 +762,11 @@
             let inputPeso = document.getElementById('input3da');
             let inputAltura = document.getElementById('input4da');
             let inputGebHB = document.getElementById('inputGebHB');
+            let inputSCQ = document.getElementById('inputSCQ');
+            let inputE = document.getElementById('inputE');
+            let inputT = document.getElementById('inputT');
+            let inputDPQ = document.getElementById('inputDPQ');
+            let inputToronto = document.getElementById('inputToronto');
                                 
             //ATRIBUIÇÃO DE VALOR
             inputIdade = inputIdade.value; 
@@ -581,6 +774,10 @@
             inputSexoM = inputSexoM.value; 
             inputPeso = inputPeso.value; 
             inputAltura = inputAltura.value;
+            inputSCQ = inputSCQ.value;
+            inputE = inputE.value;
+            inputT = inputT.value;
+            inputDPQ = inputDPQ.value;
             
             
             inputSexoFc = document.getElementById('flexSwitchCheckDefault');
@@ -599,18 +796,42 @@
             
             
             //DISPLAY AREA
-            //Feminino
-            if (inputIdade>=18&&inputAltura>2&&inputPeso>0&&inputSexoFc.checked){
             
-            inputGebHB.value=hbf;
-            //Masculino
-            } else if (inputIdade>=18&&inputAltura>2&&inputPeso>0&&inputSexoMc.checked){
-            inputGebHB.value=hbm;
+            //escolher equação
+            if(inputIdade>18){
+                document.getElementById('schoffield').style.display="none";
+            }else{document.getElementById('schoffield').style.display="block";}
+            if(inputIdade<19&&inputIdade>=3){
+                document.getElementById('toronto').style.display="none";
+            }else{document.getElementById('toronto').style.display="block";}
             
-            }else{
-            var r = window.document.getElementById('caixai')//atribuição de local
-            inputGebHB.value=9999;
-            }//else
+            //HARRIS
+                //Harris Feminino
+                if (inputIdade>=18&&inputAltura>2&&inputPeso>0&&inputSexoFc.checked){
+                
+                inputGebHB.value=hbf;
+                var HB=hbf;
+                //Harris Masculino
+                } else if (inputIdade>=18&&inputAltura>2&&inputPeso>0&&inputSexoMc.checked){
+                inputGebHB.value=hbm;
+                var HB=hbm;
+                }else{
+                var r = window.document.getElementById('caixai')//atribuição de local
+                inputGebHB.value=0;
+                var HB=0;
+                }//else
+            
+            //TORONTO
+            
+            var netToronto = parseFloat(-4343+(10.5*inputSCQ)+(0.23*inputE)+(0.84*HB)+(114*inputT)-(4.5*inputDPQ)).toFixed(2);
+            
+            if(inputIdade>18&&inputAltura>2&&inputPeso>0&&(inputSexoMc.checked||inputSexoFc.checked)&&inputT>0){
+                inputToronto.value=netToronto;
+            }
+            
+
+            console.log(netToronto);
+            //SCHOFFIELD
 
             
             }//function
@@ -622,8 +843,16 @@
                 //ATRIBUIÇÃO DE VALOR
                 inputIdade = inputIdade.value; 
                     
-            if(inputIdade<18){document.getElementById('input1da').style.borderColor='#ff0000';}else{document.getElementById('input1da').style.borderColor='#f7f7f7';}
-    
+            if(inputIdade<3){
+                document.getElementById('input1da').style.color='#ff0000'; 
+                document.getElementById('input1da').style.borderColor='red';
+                document.getElementById('erroIdade').style.display="inline";
+            }
+            else{
+                document.getElementById('input1da').style.color='#333'; 
+                document.getElementById('input1da').style.borderColor='gray';
+                document.getElementById('erroIdade').style.display="none";
+            }
             }
         </script>
         <script>
@@ -633,7 +862,13 @@
                 //ATRIBUIÇÃO DE VALOR
                 inputPeso = inputPeso.value; 
                         
-            if(inputPeso<15||inputPeso>500){document.getElementById('input3da').style.borderColor='#ff0000';}else{document.getElementById('input3da').style.borderColor='#f7f7f7';}
+            if(inputPeso<4||inputPeso>500){
+                document.getElementById('input3da').style.borderColor='#FFC300';
+                document.getElementById('erroPeso').style.display="inline";
+            }else{
+                document.getElementById('input3da').style.borderColor='gray';
+                document.getElementById('erroPeso').style.display="none";
+            }
             }
         </script>
         <script>
@@ -643,9 +878,76 @@
                 //ATRIBUIÇÃO DE VALOR
                 inputAltura = inputAltura.value;
                         
-            if(inputAltura<50){document.getElementById('input4da').style.borderColor='#ff0000';}else{document.getElementById('input4da').style.borderColor='#f7f7f7';}
+            if(inputAltura<40){
+                document.getElementById('input4da').style.borderColor='#FFC300';
+                document.getElementById('erroAltura').style.display="inline";
+            }else{
+                document.getElementById('input4da').style.borderColor='gray';
+                document.getElementById('erroAltura').style.display="none";
+            }
             }
         </script>
+        <script>
+            function redBorderSCQ(){ //borda vermelha
+                let inputSCQ = document.getElementById('inputSCQ');
+                                    
+                //ATRIBUIÇÃO DE VALOR
+                inputSCQ = inputSCQ.value;
+                        
+            if(inputSCQ<1||inputSCQ>100){
+                document.getElementById('inputSCQ').style.borderColor='red';
+                document.getElementById('erroSCQ').style.display="inline";
+            }else{
+                document.getElementById('inputSCQ').style.borderColor='gray';
+                document.getElementById('erroSCQ').style.display="none";
+            }
+            }
+        </script>
+        <script>
+            function redBorderE(){ //borda vermelha
+                let inputE = document.getElementById('inputE');
+                                    
+                //ATRIBUIÇÃO DE VALOR
+                inputE = inputE.value;
+                        
+            if(inputE<0){
+                document.getElementById('inputE').style.borderColor='red';
+            }else{
+                document.getElementById('inputE').style.borderColor='gray';
+            }
+            }
+        </script>
+        <script>
+            function redBorderT(){ //borda vermelha
+                let inputT = document.getElementById('inputT');
+                                    
+                //ATRIBUIÇÃO DE VALOR
+                inputT = inputT.value;
+                        
+            if(inputT<30||inputT>45){
+                document.getElementById('inputT').style.borderColor='red';
+                document.getElementById('erroT').style.display="inline";
+            }else{
+                document.getElementById('inputT').style.borderColor='gray';
+                document.getElementById('erroT').style.display="none";
+            }
+            }
+        </script>
+        <script>
+            function redBorderDPQ(){ //borda vermelha
+                let inputDPQ = document.getElementById('inputDPQ');
+                                    
+                //ATRIBUIÇÃO DE VALOR
+                inputDPQ = inputDPQ.value;
+                        
+            if(inputDPQ<0){
+                document.getElementById('inputDPQ').style.borderColor='red';
+            }else{
+                document.getElementById('inputDPQ').style.borderColor='gray';
+            }
+            }
+        </script>
+        
     
 </body>
 </html>
